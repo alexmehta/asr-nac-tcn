@@ -39,8 +39,7 @@ class ASRModel(pl.LightningModule):
 
     def training_step(self, batch, batch_idx):
         # if 1st of epoch, pause for 10 minutes
-        print(self.current_epoch)
-        if batch_idx == 0 and self.current_epoch == 0:
+        if batch_idx == 0 and self.current_epoch % 2 == 1:
             print("Waiting for 10 minutes")
             import time
             time.sleep(600)
